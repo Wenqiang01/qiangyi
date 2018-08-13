@@ -1,18 +1,5 @@
 <template>
-  <div class="main_contentbox">
-    <div>
-      <ul class="nav width30Prencet center">
-        <li class="nav-item">
-          <router-link class="nav-link text-center" to="/">Home</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link text-center" to="/docs">Documents</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link text-center" to="/login">Login</router-link>
-        </li>
-      </ul>
-    </div>
+  <div>
     <div id="app">
       <router-view/>
     </div>
@@ -28,11 +15,6 @@
           <div class="modal-body _modelBody">
             {{popUpMessage}}
           </div>
-          <!-- <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" @click="closeModel()">
-              Close
-            </button>
-          </div> -->
         </div>
       </div>
     </div>
