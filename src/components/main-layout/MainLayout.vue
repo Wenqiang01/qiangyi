@@ -1,6 +1,6 @@
 <template>
     <div class="">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark header-nav">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -11,8 +11,14 @@
                     <li class="nav-item width-25percent display-center">
                         <a class="nav-link" href="#">公司首页</a>
                     </li>
-                    <li class="nav-item width-25percent display-center">
-                        <a class="nav-link" href="#">某某风采</a>
+                    <li class="nav-item dropdown width-25percent display-center">
+                        <!-- <a class="nav-link" href="#">强艺风采</a> -->
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">强艺风采</a>
+                        <div class="dropdown-menu drop-menu-adjust bg-dark">
+                            <a class="dropdown-item" href="#">公司简介</a>
+                            <a class="dropdown-item" href="#">荣誉资质</a>
+                            <a class="dropdown-item" href="#">企业新闻</a>
+                        </div>
                     </li>
                     <li class="nav-item width-25percent display-center">
                         <a class="nav-link" href="#">产品展示</a>
@@ -85,27 +91,24 @@
     </div>
 </template>
 <script>
-import { clearToken } from '../../service/tokenService'
+import { clearToken } from "../../service/tokenService";
 export default {
-    name: 'MainLayout',
-    components: {
-    },
-    props: [],
-    mounted() {
-
-    },
-    data() {
-        return {
-            username: ''
-        }
-    },
-    methods: {
-        logout() {
-            clearToken();
-            this.$router.push('/');
-        }
+  name: "MainLayout",
+  components: {},
+  props: [],
+  mounted() {},
+  data() {
+    return {
+      username: ""
+    };
+  },
+  methods: {
+    logout() {
+      clearToken();
+      this.$router.push("/");
     }
-}
+  }
+};
 </script>
 <style lang='scss'>
 // @import "./../../APP.scss";
@@ -127,6 +130,14 @@ export default {
 .display-center {
   margin: 0 auto;
   text-align: center;
+}
+
+.drop-menu-adjust {
+    width: 100%;
+    text-align: center;
+    a {
+       color: rgba(255,255,255,.5)
+    }
 }
 
 .side {

@@ -41,7 +41,7 @@
                         <a href="">卧房家具</a>
                     </p>
                 </div>
-                <div class="col-3 listBlock">
+                <div class="col-3 listBlock right-border">
                     <img src="../../assets/images/images/12.jpg" alt="" class="">
                     <p>
                         <a href="">卧房家具</a>
@@ -52,39 +52,34 @@
     </mainLayout>
 </template>
 <script>
-import { mapMutations } from 'vuex';
-import mainLayout from '../main-layout/MainLayout.vue';
-import { clearToken } from '../../service/tokenService'
-import { isAuthtoProcess } from '../../service/authService';
+import { mapMutations } from "vuex";
+import mainLayout from "../main-layout/MainLayout.vue";
+import { clearToken } from "../../service/tokenService";
+import { isAuthtoProcess } from "../../service/authService";
 export default {
-    name: 'Dashboard',
-    components: {
-        mainLayout
+  name: "Dashboard",
+  components: {
+    mainLayout
+  },
+  props: [],
+  mounted() {},
+  data() {
+    return {
+      username: ""
+    };
+  },
+  methods: {
+    ...mapMutations(["ERROR_POPUP"]),
+    clickProcess(action) {
+      if (isAuthtoProcess(action)) {
+      }
     },
-    props: [],
-    mounted() {
-
-    },
-    data() {
-        return {
-            username: ''
-        }
-    },
-    methods: {
-        ...mapMutations(['ERROR_POPUP']),
-        clickProcess(action) {
-            if (isAuthtoProcess(action)) {
-            }
-        },
-        callProtectedApi() {
-
-        },
-        clearToken() {
-            clearToken();
-        }
+    callProtectedApi() {},
+    clearToken() {
+      clearToken();
     }
-
-}
+  }
+};
 </script>
 <style lang="scss">
 @import "./../../APP.scss";
@@ -109,7 +104,17 @@ export default {
     margin: 10px auto;
     padding: 17px 0 0 0;
     background: #fff;
+    border: 1px solid #efefef;
+    border-right: none;
   }
+
+  .right-border {
+    border: 1px solid #efefef;
+  }
+  //   .border {
+  //       border: 1px solid #111;
+  //       border-right: none;
+  //   }
   .listBlock:hover {
     box-shadow: inset 0 0 38px rgba(0, 0, 0, 0.08);
     transition: all 0.15s ease;
