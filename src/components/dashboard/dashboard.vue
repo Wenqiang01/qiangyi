@@ -22,41 +22,31 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-            <div class="category-normal-wrapper">
-                <ul>
-                    <li>
-                        <div>
-                            <img src="../../assets/images/images/12.jpg" alt="" class="">
-                            <p>
-                                <a href="">卧房家具</a>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img src="../../assets/images/images/12.jpg" alt="" class="">
-                            <p>
-                                <a href="">卧房家具</a>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img src="../../assets/images/images/12.jpg" alt="" class="">
-                            <p>
-                                <a href="">卧房家具</a>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img src="../../assets/images/images/12.jpg" alt="" class="">
-                            <p>
-                                <a href="">卧房家具</a>
-                            </p>
-                        </div>
-                    </li>
-                </ul>
+            <div class="category-normal-wrapper row">
+                <div class="col-3 listBlock">
+                    <img src="../../assets/images/images/12.jpg" alt="" class="">
+                    <p>
+                        <a href="">卧房家具</a>
+                    </p>
+                </div>
+                <div class="col-3 listBlock">
+                    <img src="../../assets/images/images/12.jpg" alt="" class="">
+                    <p>
+                        <a href="">卧房家具</a>
+                    </p>
+                </div>
+                <div class="col-3 listBlock">
+                    <img src="../../assets/images/images/12.jpg" alt="" class="">
+                    <p>
+                        <a href="">卧房家具</a>
+                    </p>
+                </div>
+                <div class="col-3 listBlock">
+                    <img src="../../assets/images/images/12.jpg" alt="" class="">
+                    <p>
+                        <a href="">卧房家具</a>
+                    </p>
+                </div>
             </div>
         </div>
     </mainLayout>
@@ -108,19 +98,21 @@ export default {
 
 .category-normal-wrapper {
   margin: 20px auto;
-  ul {
-    li {
-      margin: 10px;
-      float: left;
-      padding: 30px;
-      border: 1px solid #efefef;
-    }
-  }
   p {
     text-align: center;
     a {
       font-size: 10px;
     }
+  }
+  .listBlock {
+    text-align: center;
+    margin: 10px auto;
+    padding: 17px 0 0 0;
+    background: #fff;
+  }
+  .listBlock:hover {
+    box-shadow: inset 0 0 38px rgba(0, 0, 0, 0.08);
+    transition: all 0.15s ease;
   }
 }
 </style>
