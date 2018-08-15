@@ -20,11 +20,19 @@
                             <a class="dropdown-item" href="#">企业新闻</a>
                         </div>
                     </li>
-                    <li class="nav-item width-25percent display-center">
-                        <a class="nav-link" href="#">产品展示</a>
+                    <li class="nav-item dropdown width-25percent display-center">
+                        <!-- <a class="nav-link" href="#">产品展示</a> -->
+                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">产品展示</a>
+                            <div class="dropdown-menu drop-menu-adjust bg-dark">
+                                <a class="dropdown-item" href="#">卧房家具</a>
+                                <a class="dropdown-item" href="#">书房家具</a>
+                                <a class="dropdown-item" href="#">客厅家具</a>
+                                <a class="dropdown-item" href="#">餐厅家具</a>
+                                <a class="dropdown-item" href="#">其他家具</a>
+                            </div>
                     </li>
                     <li class="nav-item width-25percent display-center">
-                        <a class="nav-link" href="#">某某知识</a>
+                        <a class="nav-link" href="#">红木知识</a>
                     </li>
                 </ul>
             </div>

@@ -2,6 +2,11 @@
     <mainLayout>
         <div class="container">
             <div id="carouselExampleControls" class="carousel slide borderRadius" data-ride="carousel">
+                 <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img class="d-block w-100" src="../../assets/images/images/1.jpg" alt="First slide">
@@ -48,6 +53,16 @@
                     </p>
                 </div>
             </div>
+            <div class="row-container">
+            <div class="category-normal-wrapper row">
+                <div class="title">
+                    <span>三维实景 / 360° PERSPECTIVE</span>
+                </div>
+                <div class="col-12 rowBlock">
+                     <img src="../../assets/images/images/360_index.jpg" alt="" class="">
+                </div>
+            </div>
+            </div>
         </div>
     </mainLayout>
 </template>
@@ -91,6 +106,12 @@ export default {
   border-radius: 8px;
 }
 
+.row-container {
+  border-radius: 8px;
+  border: 1px solid #efefef;
+  background: #fafafa;
+}
+
 .category-normal-wrapper {
   margin: 20px auto;
   p {
@@ -110,6 +131,29 @@ export default {
 
   .right-border {
     border: 1px solid #efefef;
+  }
+
+  .title {
+    font-size: 100%;
+    font-weight: 400;
+    width: 100%;
+    color: #666;
+    font-family: Helvetica Neue, PingFang SC, Helvetica, Arial, Hiragino Sans GB,
+      Microsoft Yahei, \\5fae\8f6f\96c5\9ed1, STHeiti, \\534e\6587\7ec6\9ed1,
+      sans-serif;
+    font-size: 18px;
+    color: #666;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .rowBlock {
+    text-align: center;
+    padding: 17px;
+    background: #fff;
+    border: 1px solid #efefef;
+    img {
+      width: 100%;
+    }
   }
   //   .border {
   //       border: 1px solid #111;
