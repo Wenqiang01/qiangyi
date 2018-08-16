@@ -1,6 +1,6 @@
 <template>
     <div class="">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark header-nav">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark header-nav navbar-fixed-top ">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,14 +22,14 @@
                     </li>
                     <li class="nav-item dropdown width-25percent display-center">
                         <!-- <a class="nav-link" href="#">产品展示</a> -->
-                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">产品展示</a>
-                            <div class="dropdown-menu drop-menu-adjust bg-dark">
-                                <a class="dropdown-item" href="#">卧房家具</a>
-                                <a class="dropdown-item" href="#">书房家具</a>
-                                <a class="dropdown-item" href="#">客厅家具</a>
-                                <a class="dropdown-item" href="#">餐厅家具</a>
-                                <a class="dropdown-item" href="#">其他家具</a>
-                            </div>
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">产品展示</a>
+                        <div class="dropdown-menu drop-menu-adjust bg-dark">
+                            <a class="dropdown-item" href="#">卧房家具</a>
+                            <a class="dropdown-item" href="#">书房家具</a>
+                            <a class="dropdown-item" href="#">客厅家具</a>
+                            <a class="dropdown-item" href="#">餐厅家具</a>
+                            <a class="dropdown-item" href="#">其他家具</a>
+                        </div>
                     </li>
                     <li class="nav-item width-25percent display-center">
                         <a class="nav-link" href="#">红木知识</a>
@@ -101,21 +101,21 @@
 <script>
 import { clearToken } from "../../service/tokenService";
 export default {
-  name: "MainLayout",
-  components: {},
-  props: [],
-  mounted() {},
-  data() {
-    return {
-      username: ""
-    };
-  },
-  methods: {
-    logout() {
-      clearToken();
-      this.$router.push("/");
+    name: "MainLayout",
+    components: {},
+    props: [],
+    mounted() { },
+    data() {
+        return {
+            username: ""
+        };
+    },
+    methods: {
+        logout() {
+            clearToken();
+            this.$router.push("/");
+        }
     }
-  }
 };
 </script>
 <style lang='scss'>
@@ -123,6 +123,13 @@ export default {
 .dashContainer {
   display: flex;
   height: 100vh;
+}
+
+.navbar {
+  padding: 3.5rem 1rem;
+  a {
+    font-size: 20px;
+  }
 }
 
 .width-100percent {
@@ -141,11 +148,11 @@ export default {
 }
 
 .drop-menu-adjust {
-    width: 100%;
-    text-align: center;
-    a {
-       color: rgba(255,255,255,.5)
-    }
+  width: 100%;
+  text-align: center;
+  a {
+    color: rgba(255, 255, 255, 0.5);
+  }
 }
 
 .side {

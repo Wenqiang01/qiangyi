@@ -7,6 +7,7 @@ import Dashboard from '@/components/dashboard/Dashboard'
 import StoryOne from '@/components/stories/StoryOne'
 import StoryTwo from '@/components/stories/StoryTwo'
 import StoryThree from '@/components/stories/StoryThree'
+import Pictures from '@/components/stories/pictures'
 import {
   getToken,
   getUserRoles
@@ -65,6 +66,11 @@ const router = new Router({
       path: '/docs',
       name: 'DevDocs',
       component: DevDocs
+    },
+    {
+      path: '/Pictures',
+      name: 'Pictures',
+      component: Pictures
     }
   ]
 })
