@@ -9,6 +9,7 @@ import StoryTwo from '@/components/stories/StoryTwo'
 import StoryThree from '@/components/stories/StoryThree'
 import Pictures from '@/components/stories/pictures'
 import Company from '@/components/stories/company'
+import Contents from '@/components/stories/contents'
 import {
   getToken,
   getUserRoles
@@ -19,65 +20,70 @@ Vue.use(Router)
 
 const router = new Router({
   routes: [{
-      path: '/',
-      name: 'Dashboard',
-      component: Dashboard
-    },
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
-    },
-    {
-      path: '/one',
-      name: 'StoryOne',
-      component: StoryOne,
-      meta: {
-        requiresAuth: true,
-        requiresRolesCheck: true,
-      }
-    },
-    {
-      path: '/two',
-      name: 'StoryTwo',
-      component: StoryTwo,
-      meta: {
-        requiresAuth: true,
-        requiresRolesCheck: true,
-      }
-    },
-    {
-      path: '/three',
-      name: 'StoryThree',
-      component: StoryThree,
-      meta: {
-        requiresAuth: true,
-        requiresRolesCheck: true,
-      }
-    },
-    {
-      path: '/dashboard',
-      name: 'Dashboard',
-      component: Dashboard,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/docs',
-      name: 'DevDocs',
-      component: DevDocs
-    },
-    {
-      path: '/Pictures',
-      name: 'Pictures',
-      component: Pictures
-    },
-    {
-      path: '/Company',
-      name: 'Company',
-      component: Company
+    path: '/',
+    name: 'Dashboard',
+    component: Dashboard
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/one',
+    name: 'StoryOne',
+    component: StoryOne,
+    meta: {
+      requiresAuth: true,
+      requiresRolesCheck: true,
     }
+  },
+  {
+    path: '/two',
+    name: 'StoryTwo',
+    component: StoryTwo,
+    meta: {
+      requiresAuth: true,
+      requiresRolesCheck: true,
+    }
+  },
+  {
+    path: '/three',
+    name: 'StoryThree',
+    component: StoryThree,
+    meta: {
+      requiresAuth: true,
+      requiresRolesCheck: true,
+    }
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/docs',
+    name: 'DevDocs',
+    component: DevDocs
+  },
+  {
+    path: '/Pictures',
+    name: 'Pictures',
+    component: Pictures
+  },
+  {
+    path: '/Company',
+    name: 'Company',
+    component: Company
+  },
+  {
+    path: '/Contents',
+    name: 'Contents',
+    component: Contents
+  }
   ]
 })
 

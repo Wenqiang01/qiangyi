@@ -9,13 +9,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto width-80percent display-center">
                     <li class="nav-item width-25percent display-center">
-                        <a class="nav-link" href="#">公司首页</a>
+                        <a class="nav-link" href="#" @click="redircectTo('')">公司首页</a>
                     </li>
                     <li class="nav-item dropdown width-25percent display-center">
                         <!-- <a class="nav-link" href="#">强艺风采</a> -->
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">强艺风采</a>
                         <div class="dropdown-menu drop-menu-adjust bg-dark">
-                            <a class="dropdown-item" href="#">公司简介</a>
+                            <a class="dropdown-item" @click="redircectTo('Contents')" href="#">公司简介</a>
                             <a class="dropdown-item" href="#">荣誉资质</a>
                             <a class="dropdown-item" href="#">企业新闻</a>
                         </div>
@@ -24,7 +24,7 @@
                         <!-- <a class="nav-link" href="#">产品展示</a> -->
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">产品展示</a>
                         <div class="dropdown-menu drop-menu-adjust bg-dark">
-                            <a class="dropdown-item" href="#">卧房家具</a>
+                            <a class="dropdown-item" href="#" @click="redircectTo('Pictures')">卧房家具</a>
                             <a class="dropdown-item" href="#">书房家具</a>
                             <a class="dropdown-item" href="#">客厅家具</a>
                             <a class="dropdown-item" href="#">餐厅家具</a>
@@ -114,6 +114,9 @@ export default {
         logout() {
             clearToken();
             this.$router.push("/");
+        },
+        redircectTo(path) {
+            this.$router.push("/" + path);
         }
     }
 };
@@ -126,9 +129,9 @@ export default {
 }
 
 .navbar {
-  padding: 3.5rem 1rem;
+  padding: 3rem 1rem;
   a {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
