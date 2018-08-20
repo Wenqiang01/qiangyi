@@ -8,6 +8,7 @@ import StoryOne from '@/components/stories/StoryOne'
 import StoryTwo from '@/components/stories/StoryTwo'
 import StoryThree from '@/components/stories/StoryThree'
 import Pictures from '@/components/stories/pictures'
+import Company from '@/components/stories/company'
 import {
   getToken,
   getUserRoles
@@ -71,6 +72,11 @@ const router = new Router({
       path: '/Pictures',
       name: 'Pictures',
       component: Pictures
+    },
+    {
+      path: '/Company',
+      name: 'Company',
+      component: Company
     }
   ]
 })

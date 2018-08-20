@@ -58,6 +58,38 @@
                     </div>
                 </div>
             </div>
+            <div>
+                <div class="news-container">
+                    <div class="row-container">
+                        <div class="category-normal-wrapper row">
+                            <div class="title-block">
+                                <span>产品展示</span>
+                            </div>
+                            <div class="col-12 listBlock right-border">
+                                <img src="../../assets/images/images/12.jpg" alt="" class="">
+                                <p>
+                                    <a href="">卧房家具</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-container">
+                    <div class="row-container">
+                        <div class="category-normal-wrapper row">
+                            <div class="title-block">
+                                <span>产品展示</span>
+                            </div>
+                            <div class="col-12 listBlock right-border">
+                                <img src="../../assets/images/images/12.jpg" alt="" class="">
+                                <p>
+                                    <a href="">卧房家具</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row-container">
                 <div class="category-normal-wrapper row">
                     <div class="title-block">
@@ -104,5 +136,18 @@ export default {
 <style lang="scss">
 @import "./../../APP.scss";
 @import "./../../scss/qy/common.scss";
+.news-container {
+  width: 50%;
+  float: left;
+  padding: 0 10px;
+  newblock: {
+    // text-align: center;
+    // margin: 0px auto;
+    padding: 17px 0 0 0;
+    background: #fff;
+    border: 1px solid #efefef;
+    border-right: none;
+  }
+}
 </style>
 

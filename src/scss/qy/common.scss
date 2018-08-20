@@ -1,74 +1,69 @@
 .title {
-    padding: 3rem 1rem 1rem;
-  }
-  
-  .borderRadius {
-    border-radius: 8px;
-  }
-  
-  .row-container {
-    margin: 20px auto;
-    border-radius: 8px;
-    border: 1px solid #efefef;
-    background: #fafafa;
-  }
-  
-  .category-normal-wrapper {
-    margin: 0px auto;
-    p {
-      text-align: center;
-      a {
-        font-size: 10px;
-      }
-    }
-    .listBlock {
-      text-align: center;
-      margin: 0px auto;
-      padding: 17px 0 0 0;
-      background: #fff;
-      border: 1px solid #efefef;
-      border-right: none;
-    }
-  
-    .right-border {
-      border: 1px solid #efefef;
-    }
-  
-    .title-block {
-      font-size: 100%;
-      font-weight: 400;
-      padding: 10px;
-      width: 100%;
-      color: #666;
-      font-family: Helvetica Neue, PingFang SC, Helvetica, Arial, Hiragino Sans GB,
-        Microsoft Yahei, \\5fae\8f6f\96c5\9ed1, STHeiti, \\534e\6587\7ec6\9ed1,
-        sans-serif;
-      font-size: 18px;
-      color: #666;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    }
-  
-    .rowBlock {
-      text-align: center;
-      padding: 25px;
-      background: #fff;
-      border: 1px solid #efefef;
-    }
-  
-    .rowBlock img {
-      width: 100%;
-    }
-    .listBlock:hover {
-      box-shadow: inset 0 0 38px rgba(0, 0, 0, 0.08);
-      transition: all 0.15s ease;
-    }
-  
-    .rowBlock:hover {
-      box-shadow: inset 0 0 38px rgba(0, 0, 0, 0.08);
-      transition: all 0.15s ease;
-    }
-  }
+  padding: 3rem 1rem 1rem;
+}
 
-  .flex-left {
-    justify-content: left !important;
+.borderRadius {
+  border-radius: 8px;
+}
+
+.row-container {
+  margin: 20px auto;
+  border-radius: 8px;
+  border: 1px solid #efefef;
+  background: #fafafa;
+  clear: both;
+  overflow: hidden;
+}
+
+.category-normal-wrapper {
+  margin: 0px auto;
+  p {
+    text-align: center;
+    a {
+      font-size: 10px;
+    }
   }
+  .listBlock {
+    text-align: center;
+    margin: 0px auto;
+    padding: 17px 0 0 0;
+    background: #fff;
+    border: 1px solid #efefef;
+    border-right: none;
+  }
+  .right-border {
+    border: 1px solid #efefef;
+  }
+  .title-block {
+    font-size: 100%;
+    font-weight: 400;
+    padding: 10px;
+    width: 100%;
+    color: #666;
+    font-family: Helvetica Neue, PingFang SC, Helvetica, Arial, Hiragino Sans GB, Microsoft Yahei, \\5fae\8f6f\96c5\9ed1, STHeiti, \\534e\6587\7ec6\9ed1, sans-serif;
+    font-size: 18px;
+    color: #666;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .rowBlock {
+    text-align: center;
+    padding: 25px;
+    background: #fff;
+    border: 1px solid #efefef;
+  }
+  .rowBlock img {
+    width: 100%;
+  }
+  .listBlock:hover {
+    box-shadow: inset 0 0 38px rgba(0, 0, 0, 0.08);
+    transition: all 0.15s ease;
+  }
+  .rowBlock:hover {
+    box-shadow: inset 0 0 38px rgba(0, 0, 0, 0.08);
+    transition: all 0.15s ease;
+  }
+}
+
+.flex-left {
+  justify-content: left !important;
+}
