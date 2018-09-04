@@ -10,6 +10,8 @@ import StoryThree from '@/components/stories/StoryThree'
 import Pictures from '@/components/stories/pictures'
 import Company from '@/components/stories/company'
 import Contents from '@/components/stories/contents'
+import CompanyRewards from '@/components/stories/company-rewards';
+import CompanyNews from '@/components/stories/company-news';
 import {
   getToken,
   getUserRoles
@@ -78,6 +80,16 @@ const router = new Router({
     path: '/Company',
     name: 'Company',
     component: Company
+  },
+  {
+    path: '/rewards',
+    name: 'CompanyRewards',
+    component: CompanyRewards
+  },
+  {
+    path: '/news',
+    name: 'CompanyNews',
+    component: CompanyNews
   },
   {
     path: '/Contents',

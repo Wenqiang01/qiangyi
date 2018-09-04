@@ -15,9 +15,9 @@
                         <!-- <a class="nav-link" href="#">强艺风采</a> -->
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">强艺风采</a>
                         <div class="dropdown-menu drop-menu-adjust bg-dark">
-                            <a class="dropdown-item" @click="redircectTo('Contents')" href="#">公司简介</a>
-                            <a class="dropdown-item" href="#">荣誉资质</a>
-                            <a class="dropdown-item" href="#">企业新闻</a>
+                            <a class="dropdown-item" @click="redircectTo('Company')" href="#">公司简介</a>
+                            <a class="dropdown-item" @click="redircectTo('rewards')" href="#">荣誉资质</a>
+                            <a class="dropdown-item" @click="redircectTo('news')" href="#">企业新闻</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown width-25percent display-center">

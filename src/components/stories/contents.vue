@@ -1,64 +1,34 @@
 <template>
     <mainLayout>
-    
         <div class="row-container container">
-    
             <div class="row">
-    
                 <div class="col-6">
-    
                     <div class="category-normal-wrapper row">
-    
                         <div class="title-block">
-    
                             <span>产品展示</span>
-    
                         </div>
-    
                         <div class="listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-    
                             <img src="../../assets/images/images/12.jpg" alt="" class="">
-    
                             <p>
-    
                                 <a href="">卧房家具</a>
-    
                             </p>
-    
                         </div>
-    
                     </div>
-    
                 </div>
-    
                 <div class="col-6">
-    
                     <div class="category-normal-wrapper row">
-    
                         <div class="title-block">
-    
                             <span>产品展示</span>
-    
                         </div>
-    
                         <div class="listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-    
                             <img src="../../assets/images/images/12.jpg" alt="" class="">
-    
                             <p>
-    
                                 <a href="">卧房家具</a>
-    
                             </p>
-    
                         </div>
-    
                     </div>
-    
                 </div>
-    
             </div>
-    
         </div>
     
         <!-- Modal -->
