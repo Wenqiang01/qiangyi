@@ -15,7 +15,7 @@
                         <!-- <a class="nav-link" href="#">强艺风采</a> -->
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">强艺风采</a>
                         <div class="dropdown-menu drop-menu-adjust bg-dark">
-                            <a class="dropdown-item" @click="redircectTo('Contents')" href="#">公司简介</a>
+                            <a class="dropdown-item" @click="redircectTo('Company')" href="#">公司简介</a>
                             <a class="dropdown-item" href="#">荣誉资质</a>
                             <a class="dropdown-item" href="#">企业新闻</a>
                         </div>
@@ -56,14 +56,6 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
-                    <span class="title">专卖店</span>
-                    <ul>
-                        <li>
-                            地址：张杨路1518号　　电话：021-50152006
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
                     <span class="title">展示厅</span>
                     <ul>
                         <li>
@@ -87,10 +79,24 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
+                    <span class="title">专卖店</span>
+                    <ul>
+                        <li>
+                            地址：张杨路1518号　　电话：021-50152006
+                        </li>
+                         <li>
+                            <img src="../../assets/images/images/wechat.png" alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
                     <span class="title">专车接送</span>
                     <ul>
                         <li>
                             预约电话：021-58575880
+                        </li>
+                        <li>
+                            <img src="../../assets/images/images/sina.png" alt="">
                         </li>
                     </ul>
                 </div>
