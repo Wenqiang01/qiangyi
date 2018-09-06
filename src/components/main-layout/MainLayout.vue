@@ -56,14 +56,6 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
-                    <span class="title">专卖店</span>
-                    <ul>
-                        <li>
-                            地址：张杨路1518号　　电话：021-50152006
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
                     <span class="title">展示厅</span>
                     <ul>
                         <li>
@@ -87,10 +79,24 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
+                    <span class="title">专卖店</span>
+                    <ul>
+                        <li>
+                            地址：张杨路1518号　　电话：021-50152006
+                        </li>
+                         <li>
+                            <img src="../../assets/images/images/wechat.png" alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
                     <span class="title">专车接送</span>
                     <ul>
                         <li>
                             预约电话：021-58575880
+                        </li>
+                        <li>
+                            <img src="../../assets/images/images/sina.png" alt="">
                         </li>
                     </ul>
                 </div>
