@@ -80,6 +80,7 @@ export default {
 }
 
 .main {
+  padding-left: 20px;
   flex: 1;
   display: flex;
   flex-direction: column;

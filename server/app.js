@@ -9,6 +9,7 @@ var app = express();
 var server = http.createServer(app);
 
 var routes = require('./api/index');
+var mokRoutes = require('./api/mok/index');
 
 
 app.use(methodOverride());
@@ -28,6 +29,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/api', routes);
+app.use('/api/mok/', mokRoutes);
 
 app.use(function (err, req, res, next) {
   if (err.name === 'UnauthorizedError') {

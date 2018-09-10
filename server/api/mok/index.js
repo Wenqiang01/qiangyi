@@ -4,3 +4,4 @@ var router = express.Router();
 
 require('./products/index').configRoutes(router);
 
+module.exports = router;

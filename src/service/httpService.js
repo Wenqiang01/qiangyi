@@ -9,3 +9,6 @@ export const getElementPermissions =
 
 export const getComponentPermissions =
   () => fetch('/componentPermissions', {}, 'GET', ''); 
+
+export const addProducts =
+  (product) => fetch('/mok/products', product, 'POST', '');
