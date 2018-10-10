@@ -1,5 +1,7 @@
 var fs = require('fs');
 var path = require('path');
+var formidable = require('formidable');
+var util = require('util');
 'use strict';
 
 module.exports.configRoutes = function (router) {
@@ -12,10 +14,10 @@ module.exports.configRoutes = function (router) {
         res.status(200).json(Object.assign({
           isMock: true
         }, {
-          data: respData
-        }, {
-          status: 'SUCCESS'
-        }));
+            data: respData
+          }, {
+            status: 'SUCCESS'
+          }));
       }
     })
   });
@@ -37,10 +39,10 @@ module.exports.configRoutes = function (router) {
         res.status(200).json(Object.assign({
           isMock: true
         }, {
-          data: respData
-        }, {
-          status: 'SUCCESS'
-        }));
+            data: respData
+          }, {
+            status: 'SUCCESS'
+          }));
       }
     })
   })
@@ -70,15 +72,41 @@ module.exports.configRoutes = function (router) {
           res.status(200).json(Object.assign({
             isMock: true
           }, {
-            message: maxId + ' Products added Successful',
-            status: 'SUCCESS'
-          }));
+              message: maxId + ' Products added Successful',
+              status: 'SUCCESS'
+            }));
         })
       }
     })
   })
-}
 
+  router.post('/addFile/', (req, res) => {
+    console.log(req.url);
+    if (req.url == '/addFile') {
+      console.log('inside the add file function')
+      var form = new formidable.IncomingForm();
+      form.uploadDir='api/mok/products/files';
+      form.parse(req, function (err, fields, files) {
+        // console.log('path', files.file.path);
+        // var oldpath = files.file.path;
+        var oldpath  = files.file.path;
+        console.log('oldPath', oldpath);
+        var newpath = path.resolve(__dirname, "./files/123.jpg")
+        console.log('newPath', newpath);
+        fs.rename(oldpath, newpath, function (err) {
+          if (err) throw err;
+          res.status(200).json(Object.assign({
+            isMock: true
+          }, {
+              message: ' File uploaded Successful',
+              status: 'SUCCESS'
+            }));
+        });
+
+      })
+    }
+  });
+}
 
 function fileRead(next) {
   fs.readFile(path.resolve(__dirname, "./json/products.json"), next)
@@ -86,4 +114,4 @@ function fileRead(next) {
 
 function fileWrite(data, next) {
   fs.writeFile(path.resolve(__dirname, "./json/products.json"), data, next)
-}
+};

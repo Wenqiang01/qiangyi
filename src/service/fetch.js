@@ -6,7 +6,7 @@ import {
 } from './tokenService';
 import axios from 'axios';
 
-export default async (url = '', data = {}, type = 'GET', method = '') => {
+export default async (url = '', data = {}, type = 'GET', method = '', headers = null) => {
   type = type.toLowerCase();
   url = baseUrl + url;
   const token = getToken();
@@ -41,6 +41,13 @@ export default async (url = '', data = {}, type = 'GET', method = '') => {
     return HTTP.post(url, data, {
       headers: {
         Authorization: auth_token
+      }
+    });
+  } else if (type === 'post_file') {
+    return HTTP.post(url, data, {
+      headers: {
+        Authorization: auth_token,
+        'Content-Type': 'multipart/form-data'
       }
     });
   }

@@ -1,15 +1,15 @@
 <template>
   <mainLayout>
-    <div class="row-container container">
+    <div class="company-container container">
       <div class="category-normal-wrapper">
         <div class="title-block">
           <span>Company News</span>
         </div>
         <div data-toggle="modal" data-target="#exampleModalCenter">
           <div v-for="(news, index) in newList">
-            <div class="row">
+            <div class="row new-list-adjust">
               <div class="col-9">
-                <a href="">{{news.title}}</a>
+                <a class="list-item" href="#">{{news.title}}</a>
               </div>
               <div class="col-2">{{news.date}}</div>
             </div>
@@ -86,7 +86,7 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .company-container {
   margin: 0 auto;
   max-width: 800px;
@@ -104,6 +104,9 @@ export default {
   }
   .h1-size {
     font-size: 2.6rem;
+  }
+  .list-item {
+    color: darkgray;
   }
 }
 </style>

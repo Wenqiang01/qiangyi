@@ -12,3 +12,6 @@ export const getComponentPermissions =
 
 export const addProducts =
   (product) => fetch('/mok/products', product, 'POST', '');
+  
+export const postFileData = 
+  (formData) => fetch('/mok/addFile', formData, 'POST_FILE', '');
