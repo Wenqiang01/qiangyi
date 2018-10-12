@@ -9,6 +9,7 @@
           <div v-for="(news, index) in newList">
             <div class="row new-list-adjust">
               <div class="col-9">
+                <span>{{index}}</span>
                 <a class="list-item" href="#">{{news.title}}</a>
               </div>
               <div class="col-2">{{news.date}}</div>

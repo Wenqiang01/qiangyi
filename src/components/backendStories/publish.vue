@@ -10,8 +10,7 @@
         </div>
         <div class="col-2">
           <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" @click="preview()">预览</button>
-          <input type="file" id="file" ref="file" v-on:change="handleFileUpload()">
-          <button class="btn btn-primary" v-on:click="submitFile()">上传文件</button>
+
         </div>
       </div>
       <div id="publish">

@@ -15,3 +15,13 @@ export const addProducts =
   
 export const postFileData = 
   (formData) => fetch('/mok/addFile', formData, 'POST_FILE', '');
+
+export const getImgAllList = 
+  () => fetch('/mok/imgListsAll', {}, 'GET', '');
+
+export const getImgObjById = 
+  (formObj) => fetch('/mok/imgLists', formObj, 'GET', '');
+
+export const getImgById = 
+  (id) => fetch('/mok/img/' + id, {}, 'GET', '');
+

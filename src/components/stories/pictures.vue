@@ -130,25 +130,24 @@
             </div>
         </div>
 
-
         <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog picture-Width" role="document">
                 <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">图片展示</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body img-preview">
-                    <img class="img-fluid" src="../../assets/images/images/12 (1).jpg" alt="">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary">上一张</button>
-                    <button type="button" class="btn btn-secondary">下一张</button>
-                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">关  闭</button> -->
-                </div>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">图片展示</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body img-preview">
+                        <img class="img-fluid" src="../../assets/images/images/12 (1).jpg" alt="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary">上一张</button>
+                        <button type="button" class="btn btn-secondary">下一张</button>
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">关  闭</button> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -157,33 +156,49 @@
 <script>
 import { mapState, mapMutations } from "vuex";
 import mainLayout from "../main-layout/MainLayout.vue";
+import { getImgAllList, getImgById } from "../../service/httpService.js";
 export default {
-  name: "Pictures",
-  components: {
-    mainLayout
-  },
-  data() {
-    return {
-      popUpMessage: ""
-    };
-  },
-  computed: {
-    ...mapState(["errorPop"]),
-    checkPopModelStatus() {
-      this.popUpMessage = this.errorPop ? this.errorPop.errorMsg : "";
-      return this.errorPop ? this.errorPop.isPopUp : false;
+    name: "Pictures",
+    components: {
+        mainLayout
+    },
+    data() {
+        return {
+            popUpMessage: ""
+        };
+    },
+    created() {
+        this.initData();
+    },
+    computed: {
+        ...mapState(["errorPop"]),
+        checkPopModelStatus() {
+            this.popUpMessage = this.errorPop ? this.errorPop.errorMsg : "";
+            return this.errorPop ? this.errorPop.isPopUp : false;
+        }
+    },
+    mounted() { },
+    methods: {
+        ...mapMutations(["ERROR_POPUP"]),
+        async initData() {
+            let imgList = null;
+            await getImgAllList().then((data) => {
+                console.log('imgList', data);
+                imgList = data.data.data;
+            });
+            if (imgList.imgList && imgList.imgList.length > 0) {
+                await getImgById(imgList.imgList[0].id).then((file) => {
+                    console.log(file);
+                })
+            }
+        },
+        closeModel() {
+            this.ERROR_POPUP({
+                message: "",
+                isPopUp: false
+            });
+        }
     }
-  },
-  mounted() {},
-  methods: {
-    ...mapMutations(["ERROR_POPUP"]),
-    closeModel() {
-      this.ERROR_POPUP({
-        message: "",
-        isPopUp: false
-      });
-    }
-  }
 };
 </script>
 <style lang="scss">

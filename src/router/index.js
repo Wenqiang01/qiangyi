@@ -13,6 +13,7 @@ import Contents from '@/components/stories/contents'
 import CompanyRewards from '@/components/stories/company-rewards';
 import CompanyNews from '@/components/stories/company-news';
 import Publish from '@/components/backendStories/publish'
+import AddPictures from '@/components/backendStories/addProductPics'
 import {
   getToken,
   getUserRoles
@@ -101,6 +102,11 @@ const router = new Router({
     path: '/Contents',
     name: 'Contents',
     component: Contents
+  },
+  {
+    path: '/addPics',
+    name: 'AddPictures',
+    component: AddPictures
   }
   ]
 })

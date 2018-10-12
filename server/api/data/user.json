@@ -1,0 +1,14 @@
+[{
+  "Anna": {
+    "roles": ["admin"]
+  },
+  "Bill": {
+    "roles": ["modifier"]
+  },
+  "Craig": {
+    "roles": ["viewer"]
+  },
+  "Daisy": {
+    "roles": ["admin", "viewer"]
+  }
+}]
