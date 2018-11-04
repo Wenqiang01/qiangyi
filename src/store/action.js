@@ -24,5 +24,8 @@ export default {
     return {
       status: 'SUCCESS'
     };
+  },
+  ERROR_POPUP({commit}, payLoad) {
+      commit('ERROR_POPUP', payLoad)
   }
 }

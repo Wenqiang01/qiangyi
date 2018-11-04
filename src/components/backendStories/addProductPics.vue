@@ -13,10 +13,11 @@
                         选择图片类型:
                     </span>
                     <select name="cars" v-model="fileType" style="min-width:200px">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="fiat">Fiat</option>
-                        <option value="audi">Audi</option>
+                        <option value="卧房家具">卧房家具</option>
+                        <option value="卧房家具">卧房家具</option>
+                        <option value="客厅家具">客厅家具</option>
+                        <option value="餐厅家具">餐厅家具</option>
+                        <option value="其他家具">其他家具</option>
                     </select>
                 </div>
             </div>
@@ -26,9 +27,14 @@
                         <input id="uploadFile" style="display: none" accept="image/*" name="uploadFile" ref="uploadFile" type="file" @change="handleFileUpload()"></label>
                     <label v-if="hasFile">{{uploadedFileName}}</label>
                 </div>
+                <div class="row" v-if="hasFile">
+                    <img :src="imgDataUrl" style="height: 300px" alt="">
+                </div>
             </div>
             <div>
-                <button @click="submitFile()" class="btn btn-primary label">保存添加</button>
+                <div class="row">
+                    <button @click="submitFile()" class="btn btn-primary label">保存添加</button>
+                </div>
             </div>
         </div>
         <!-- preview -->
@@ -48,7 +54,6 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary">上一张</button>
                         <button type="button" class="btn btn-secondary">下一张</button>
-                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">关  闭</button> -->
                     </div>
                 </div>
             </div>
@@ -79,17 +84,23 @@ export default {
             hasFile: false,
             uploadedFileName: '',
             contentModal: 'Edit Your Content Here!',
-            file: null
+            file: null,
+            imgDataUrl: ''
         }
     },
-
     methods: {
         handleFileUpload() {
             console.log(this.$refs.uploadFile.files[0]);
             if (!this.$refs.uploadFile.files[0]) { this.file === null; return }
             this.uploadedFileName = this.$refs.uploadFile.files[0].name;
-            this.hasFile = true;
+            this.hasFile = false;
             this.file = this.$refs.uploadFile.files[0];
+            const fileReader = new FileReader();
+            fileReader.addEventListener('load', () => {
+                this.hasFile = true;
+                this.imgDataUrl = fileReader.result;
+            })
+            fileReader.readAsDataURL(this.file);
 
             console.log('fileType', this.fileType);
         },
@@ -104,8 +115,17 @@ export default {
             const promise = postFileData(formData);
             promise.then(data => {
                 console.log(data);
-                if(data.status === 'SUCCESS') {
-                    
+                if(data.data.status === 'SUCCESS') {
+                    this.$store.dispatch('ERROR_POPUP', {
+                         message: data.data.message,
+                        isPopUp: true
+                    });
+                    this.title = '';
+                    this.fileType = '';
+                    this.hasFile = false
+                    this.uploadedFileName = '';
+                    this.file = null,
+                    this.imgDataUrl = '';
                 }
             });
         },

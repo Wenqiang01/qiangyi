@@ -85,19 +85,22 @@ module.exports.configRoutes = function (router) {
     if (req.url == '/addFile') {
       console.log('inside the add file function')
       var form = new formidable.IncomingForm();
-      form.uploadDir = 'api/mok/products/files';
+
+      const imgAddress = 'api/mok/products/files';
+      form.uploadDir = imgAddress;
       form.parse(req, function (err, fields, files) {
         var oldpath = files.file.path;
         const type = files.file.type.toString().split('/')[1];
         const imgId = new Date().getTime();
         var newpath = path.resolve(__dirname, 'files/' + imgId.toString() + '.' + type);
+        const imagHost = 'http://' + req.headers.host + '/api/mok/imageById/' + imgId.toString() + '.' + type;
         fs.rename(oldpath, newpath, function (err) {
           if (err) throw err;
           const fileData = {
             id: imgId,
             type: fields.fileType,
             title: fields.title,
-            path: newpath
+            path: imagHost
           }
           storeImg(fileData, res);
         });
@@ -136,6 +139,11 @@ module.exports.configRoutes = function (router) {
         imgList: list
       })
     })
+  })
+
+  router.get('/imageById/:id', (req, res) => {
+    const imgPath = path.resolve(__dirname, 'files/' + req.params['id']);
+    downloadFile(res, imgPath)
   })
 
   router.get('/img/:id', function (req, res) {

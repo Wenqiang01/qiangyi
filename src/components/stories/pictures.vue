@@ -3,133 +3,24 @@
         <div class="row-container container">
             <div class="category-normal-wrapper row">
                 <div class="title-block">
-                    <span>产品展示</span>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
-                    </p>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
-                    </p>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
-                    </p>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
-                    </p>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
-                    </p>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
-                    </p>
+                        <span class="text-warm badge-title">全部</span>
+                        <span class="text-warm badge-title" v-for="type of imgTypeList" :key="type">{{type}}</span>
                 </div>
             </div>
         </div>
         <div class="row-container container">
-            <div class="category-normal-wrapper row">
+            <div class="category-normal-wrapper row" v-for="type of imgTypeList" :key="type">
                 <div class="title-block">
-                    <span>产品展示</span>
+                    <span>{{type}}</span>
                 </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
+                <div v-for="img of getImgListByType(type)" :key="img.id" class="col-3 listBlock" data-toggle="modal" @click="onImgToggle(img.path)" data-target="#exampleModalCenter">
+                    <img :src="img.path" alt="" class="" style="width: 200px">
                     <p>
-                        <a href="">卧房家具</a>
-                    </p>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
-                    </p>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
-                    </p>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
-                    </p>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
-                    </p>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
+                        <a href="">{{img.title}}</a>
                     </p>
                 </div>
             </div>
         </div>
-        <div class="row-container container">
-            <div class="category-normal-wrapper row">
-                <div class="title-block">
-                    <span>产品展示</span>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
-                    </p>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
-                    </p>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
-                    </p>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
-                    </p>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
-                    </p>
-                </div>
-                <div class="col-3 listBlock" data-toggle="modal" data-target="#exampleModalCenter">
-                    <img src="../../assets/images/images/12.jpg" alt="" class="">
-                    <p>
-                        <a href="">卧房家具</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
         <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog picture-Width" role="document">
@@ -141,7 +32,7 @@
                         </button>
                     </div>
                     <div class="modal-body img-preview">
-                        <img class="img-fluid" src="../../assets/images/images/12 (1).jpg" alt="">
+                        <img class="img-fluid" :src="imagePreviewPath" alt="">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary">上一张</button>
@@ -158,47 +49,93 @@ import { mapState, mapMutations } from "vuex";
 import mainLayout from "../main-layout/MainLayout.vue";
 import { getImgAllList, getImgById } from "../../service/httpService.js";
 export default {
-    name: "Pictures",
-    components: {
-        mainLayout
+  name: "Pictures",
+  components: {
+    mainLayout
+  },
+  data() {
+    return {
+      popUpMessage: "",
+      imagePreviewPath: "",
+      imgList: [],
+      imgTypeList: []
+    };
+  },
+  created() {
+    this.initData();
+  },
+  computed: {
+    ...mapState(["errorPop"]),
+    checkPopModelStatus() {
+      this.popUpMessage = this.errorPop ? this.errorPop.errorMsg : "";
+      return this.errorPop ? this.errorPop.isPopUp : false;
     },
-    data() {
-        return {
-            popUpMessage: ""
-        };
-    },
-    created() {
-        this.initData();
-    },
-    computed: {
-        ...mapState(["errorPop"]),
-        checkPopModelStatus() {
-            this.popUpMessage = this.errorPop ? this.errorPop.errorMsg : "";
-            return this.errorPop ? this.errorPop.isPopUp : false;
-        }
-    },
-    mounted() { },
-    methods: {
-        ...mapMutations(["ERROR_POPUP"]),
-        async initData() {
-            let imgList = null;
-            await getImgAllList().then((data) => {
-                console.log('imgList', data);
-                imgList = data.data.data;
-            });
-            if (imgList.imgList && imgList.imgList.length > 0) {
-                await getImgById(imgList.imgList[0].id).then((file) => {
-                    console.log(file);
-                })
-            }
-        },
-        closeModel() {
-            this.ERROR_POPUP({
-                message: "",
-                isPopUp: false
-            });
-        }
+    dataUrl() {
+      if (this.imageData && this.imageData.data) {
+        return "";
+      } else {
+        return "";
+      }
     }
+  },
+  mounted() {},
+  methods: {
+    ...mapMutations(["ERROR_POPUP"]),
+    initData() {
+      getImgAllList().then(data => {
+        console.log("imgList", data);
+        this.imgList = data.data.data.imgList;
+        if (this.imgList) {
+          this.imgList.map(item => {
+            if (this.imgTypeList.indexOf(item.type) < 0) {
+              this.imgTypeList.push(item.type);
+            }
+          });
+          console.log("imgTypeList", this.imgTypeList);
+        }
+        // this.imageData = imgList[0];
+      });
+    },
+    getImgListByType(type) {
+      const list = [];
+      this.imgList.map(item => {
+        if (item.type === type) {
+          list.push(item);
+        }
+      });
+      return list || [];
+    },
+    onImgToggle(path) {
+      this.imagePreviewPath = path;
+    },
+    async DownloadData() {
+      let imgList = null;
+      await getImgAllList().then(data => {
+        console.log("imgList", data);
+        this.imgList = data.data.data.imgList;
+        console.log("imgList", this.imgList);
+      });
+      if (imgList.imgList && imgList.imgList.length > 0) {
+        await getImgById(imgList.imgList[0].id).then(file => {
+          console.log(file);
+          this.imageData = file;
+          var blob = new Blob([file], { type: "application/pdf" });
+          var link = document.createElement("a");
+          link.href = window.URL.createObjectURL(blob);
+          link.download = "pic";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
+      }
+    },
+    closeModel() {
+      this.ERROR_POPUP({
+        message: "",
+        isPopUp: false
+      });
+    }
+  }
 };
 </script>
 <style lang="scss">
@@ -206,6 +143,15 @@ export default {
 
 .picture-Width {
   max-width: 800px;
+}
+
+.badge-title {
+  cursor: pointer;
+  margin-right: 20px;
+  padding: 5px;
+  &:hover {
+      background: #bbb
+  }
 }
 
 .img-preview {

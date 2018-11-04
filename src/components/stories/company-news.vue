@@ -6,7 +6,7 @@
           <span>Company News</span>
         </div>
         <div data-toggle="modal" data-target="#exampleModalCenter">
-          <div v-for="(news, index) in newList">
+          <div v-for="(news, index) in newList" :key="news.id">
             <div class="row new-list-adjust">
               <div class="col-9">
                 <span>{{index}}</span>

@@ -108,7 +108,8 @@ const router = new Router({
     name: 'AddPictures',
     component: AddPictures
   }
-  ]
+  ],
+  mode: 'history'
 })
 
 

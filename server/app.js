@@ -1,4 +1,5 @@
 require('dotenv').load();
+const port = 8808;
 var http = require('http');
 var express = require('express');
 var morgan = require('morgan');
@@ -37,5 +38,5 @@ app.use(function (err, req, res, next) {
   }
 });
 
-server.listen(8808);
+server.listen(port);
 console.log('Express server listening on port: ' + server.address().port);
