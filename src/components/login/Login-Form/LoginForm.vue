@@ -55,6 +55,7 @@ export default {
                 if (response.data && response.data.code === 1) {
                     this.ERROR_POPUP({
                         message: 'UserName or Password is incorrect, please try it again',
+                        type: 'WORM',
                         isPopUp: true
                     })
                 } else {
@@ -73,9 +74,10 @@ export default {
 
                     } else {
                         this.ERROR_POPUP({
-                        message: 'UserName or Password is incorrect, please try it again',
-                        isPopUp: true
-                    })
+                            message: 'UserName or Password is incorrect, please try it again',
+                            type: 'WORM',
+                            isPopUp: true
+                        })
                     }
                 }
             })

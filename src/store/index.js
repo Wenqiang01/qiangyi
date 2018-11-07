@@ -11,6 +11,7 @@ const state = {
 	componentPermissions: [],
 	errorPop: {
 		errorMsg: '',
+		errorType: '',
 		isPopUp: false
 	}
 }

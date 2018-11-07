@@ -1,8 +1,10 @@
 var fs = require('fs');
+let ResponseAPI = require('../common/index');
 var path = require('path');
 var formidable = require('formidable');
 var util = require('util');
 'use strict';
+const responseAPI = new ResponseAPI();
 
 module.exports.configRoutes = function (router) {
   router.get('/products/', function (req, res) {
@@ -100,7 +102,8 @@ module.exports.configRoutes = function (router) {
             id: imgId,
             type: fields.fileType,
             title: fields.title,
-            path: imagHost
+            path: imagHost,
+            imgType: type
           }
           storeImg(fileData, res);
         });
@@ -111,19 +114,48 @@ module.exports.configRoutes = function (router) {
   router.get('/imgLists/:id', function (req, res) {
     fileReadImgList((err, data) => {
       if (err) {
-        sendingErrorMsg(res, err);
+        responseAPI.sendingErrorMsg(res, err);
         return;
       }
       const list = JSON.parse(data) || [];
       let imageObj = null
       list.map((item) => {
-        if (item.id === req.params['id']) {
+        if (item.id.toString() === req.params['id'].toString()) {
           imageObj = item;
         }
       })
-      sendingJSONData(res, {
+      responseAPI.sendingJSONData(res, {
         imageObj: imageObj
       })
+    })
+  })
+
+  router.delete('/imgLists/:id', function (req, res) {
+    fileReadImgList((err, data) => {
+      if (err) {
+        responseAPI.sendingErrorMsg(res, err);
+        return;
+      }
+      const list = JSON.parse(data) || [];
+      console.log('delete function called')
+      let imageObj = null
+      list.map((item) => {
+        console.log(item.id + ' - ' + req.params['id']);
+        if (item.id.toString() === req.params['id'].toString()) {
+          this.imageObj = item;
+          const reminingList = list.filter(itemData => itemData.id.toString() !== req.params['id'].toString());
+          console.log('remining List', reminingList);
+          fileWriteImgList(JSON.stringify(reminingList), (err) => {
+            if (!err) deleteImgById(res, {
+              id: item.id,
+              type: item.imgType
+            });
+          });
+        }
+      })
+      // if (!imageObj) {
+      //   responseAPI.sendingErrorMsg(res, 'Not found', 404);
+      // }
     })
   })
 
@@ -131,11 +163,11 @@ module.exports.configRoutes = function (router) {
     console.log('img Called');
     fileReadImgList((err, data) => {
       if (err) {
-        sendingErrorMsg(res, err);
+        responseAPI.sendingErrorMsg(res, err);
         return;
       }
       const list = JSON.parse(data) || [];
-      sendingJSONData(res, {
+      responseAPI.sendingJSONData(res, {
         imgList: list
       })
     })
@@ -143,13 +175,13 @@ module.exports.configRoutes = function (router) {
 
   router.get('/imageById/:id', (req, res) => {
     const imgPath = path.resolve(__dirname, 'files/' + req.params['id']);
-    downloadFile(res, imgPath)
+    responseAPI.sendFile(res, imgPath)
   })
 
   router.get('/img/:id', function (req, res) {
     fileReadImgList((err, data) => {
       if (err) {
-        sendingErrorMsg(res, err);
+        responseAPI.sendingErrorMsg(res, err);
         return;
       }
       const list = JSON.parse(data) || [];
@@ -163,11 +195,11 @@ module.exports.configRoutes = function (router) {
           imageObj = item;
         }
       })
-      console.log('imgFound',imageObj)
-      if(imageObj) {
-        downloadFile(res, imageObj.path);
+      console.log('imgFound', imageObj)
+      if (imageObj) {
+        responseAPI.sendFile(res, imageObj.path);
       } else {
-        sendingErrorMsg(res, 'Not found', 404);
+        responseAPI.sendingErrorMsg(res, 'Not found', 404);
       }
 
     })
@@ -191,6 +223,19 @@ function storeImg(data, response) {
   })
 }
 
+function deleteImgById(response, payLoad) {
+  const imgPath = path.resolve(__dirname, 'files/' + payLoad.id + '.' + payLoad.type);
+  console.log(imgPath);
+  fs.unlink(imgPath, (errMsg) => {
+    console.log(errMsg);
+    if (errMsg) {
+      responseAPI.sendingErrorMsg(response, 'DeleteFileError', 400);
+    } else {
+      responseAPI.sendingJSONData(response, 'Image Deleted');
+    }
+  })
+}
+
 function fileRead(next) {
   fs.readFile(path.resolve(__dirname, "./json/products.json"), next)
 }
@@ -206,28 +251,3 @@ function fileReadImgList(next) {
 function fileWriteImgList(data, next) {
   fs.writeFile(path.resolve(__dirname, "./json/imglist.json"), data, next)
 };
-
-function sendingErrorMsg(response, err, statusCode = 400) {
-  response.status(statusCode).json(Object.assign({
-    isMock: true
-  }, {
-    message: err,
-    status: 'ERROR'
-  }));
-}
-
-function sendingJSONData(response, data) {
-  response.status(200).json(Object.assign({
-    isMock: true
-  }, {
-    data: data,
-    status: 'SUCCESS'
-  }));
-}
-
-function downloadFile(response, path) {
-  // response.status(200).sendFile(path, (err) => {
-  //   sendingErrorMsg(response, err);
-  // })
-  response.status(200).sendFile(path);
-}

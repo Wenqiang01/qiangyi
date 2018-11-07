@@ -8,20 +8,22 @@ export const getElementPermissions =
   () => fetch('/elementPermissions', {}, 'GET', '');
 
 export const getComponentPermissions =
-  () => fetch('/componentPermissions', {}, 'GET', ''); 
+  () => fetch('/componentPermissions', {}, 'GET', '');
 
 export const addProducts =
   (product) => fetch('/mok/products', product, 'POST', '');
-  
-export const postFileData = 
+
+export const postFileData =
   (formData) => fetch('/mok/addFile', formData, 'POST_FILE', '');
 
-export const getImgAllList = 
+export const getImgAllList =
   () => fetch('/mok/imgListsAll', {}, 'GET', '');
 
-export const getImgObjById = 
+export const getImgObjById =
   (formObj) => fetch('/mok/imgLists', formObj, 'GET', '');
 
-export const getImgById = 
+export const getImgById =
   (id) => fetch('/mok/img/' + id, {}, 'GET', '');
 
+export const deleteImgById =
+  (id) => fetch('/mok/imgLists/' + id, {}, 'DELETE', '');

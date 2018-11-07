@@ -1,9 +1,9 @@
 <template>
   <div>
     <div id="app">
-      <router-view/>
+      <router-view />
     </div>
-    <div class="modal modal-open" v-if="checkPopModelStatus" id="myModal" ref="myModal" style="display: block">
+    <!-- <div class="modal modal-open" v-if="checkPopModelStatus" id="myModal" ref="myModal" style="display: block">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header _modelHeader">
@@ -14,6 +14,24 @@
           </div>
           <div class="modal-body _modelBody">
             {{popUpMessage}}
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="modal fade" :class="{ show: checkPopModelStatus }" v-if="checkPopModelStatus" id="exampleModal" tabindex="-1" style="display: block; padding-right: 17px;" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header" :class="[popUpType]">
+            <h4 class="modal-title row text-center"  id="exampleModalLabel" style="color: #fff">提示信息</h4>
+            <button type="button" class="close" @click="closeModel()" aria-label="Close">
+              <span aria-hidden="false" style="color: #fff">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="min-height: 100px">
+            <h3>{{popUpMessage}}</h3>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" @click="closeModel()">Close</button>
           </div>
         </div>
       </div>
@@ -34,6 +52,23 @@ export default {
     ...mapState(['errorPop']),
     checkPopModelStatus() {
       this.popUpMessage = this.errorPop ? this.errorPop.errorMsg : '';
+      // test only 
+      this.popUpMessage = "dddd"
+      this.popUpType = 'bg-info';
+      switch (this.errorPop ? this.errorPop.errorMsg : '') {
+        case 'SUCCESS':
+          this.popUpType = 'bg-success';
+          break;
+        case 'ERROR':
+          this.popUpType = 'bg-danger';
+          break;
+        case 'WORM':
+          this.popUpType = 'bg-warning';
+          break;
+        default:
+          this.popUpType = 'bg-info';
+          break;
+      }
       return this.errorPop ? this.errorPop.isPopUp : false;
     }
   },
@@ -46,6 +81,7 @@ export default {
     closeModel() {
       this.ERROR_POPUP({
         message: '',
+        type: '',
         isPopUp: false
       });
     }
@@ -53,7 +89,7 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
 @import "./APP.scss";
 // @import "./scss/fonts/scss/fontawesome.scss";
 // @import "./scss/fonts/scss/brands.scss";

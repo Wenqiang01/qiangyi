@@ -1,34 +1,42 @@
 <template>
-    <div class="container row ">
-        <div class="col-3 side-bar">
-
-        </div>
-        <div class="col-9 main">
-            <slot></slot>
-        </div>
+  <div class="container row ">
+    <div class="col-3 side-bar">
+      <div class="row">
+        <router-link to="/">Go home page</router-link>
+      </div>
+      <div class="row">
+        <router-link to="/addPics">Go to Add Product pictures</router-link>
+      </div>
+      <div class="row">
+        <router-link to="/managePics">Go to Picture Management</router-link>
+      </div>
     </div>
+    <div class="col-9 main">
+      <slot></slot>
+    </div>
+  </div>
 </template>
 <script>
 import { clearToken } from "../../service/tokenService";
 export default {
-    name: "BEMainLayout",
-    components: {},
-    props: [],
-    mounted() { },
-    data() {
-        return {
-            username: ""
-        };
+  name: "BEMainLayout",
+  components: {},
+  props: [],
+  mounted() { },
+  data() {
+    return {
+      username: ""
+    };
+  },
+  methods: {
+    logout() {
+      clearToken();
+      this.$router.push("/");
     },
-    methods: {
-        logout() {
-            clearToken();
-            this.$router.push("/");
-        },
-        redircectTo(path) {
-            this.$router.push("/" + path);
-        }
+    redircectTo(path) {
+      this.$router.push("/" + path);
     }
+  }
 };
 </script>
 <style lang='scss'>

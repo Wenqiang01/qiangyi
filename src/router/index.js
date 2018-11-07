@@ -14,6 +14,7 @@ import CompanyRewards from '@/components/stories/company-rewards';
 import CompanyNews from '@/components/stories/company-news';
 import Publish from '@/components/backendStories/publish'
 import AddPictures from '@/components/backendStories/addProductPics'
+import ManagePics from '@/components/backendStories/manageProductPics'
 import {
   getToken,
   getUserRoles
@@ -24,90 +25,95 @@ Vue.use(Router)
 
 const router = new Router({
   routes: [{
-    path: '/',
-    name: 'Dashboard',
-    component: Dashboard
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login
-  },
-  {
-    path: '/one',
-    name: 'StoryOne',
-    component: StoryOne,
-    meta: {
-      requiresAuth: true,
-      requiresRolesCheck: true,
+      path: '/',
+      name: 'Dashboard',
+      component: Dashboard
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/one',
+      name: 'StoryOne',
+      component: StoryOne,
+      meta: {
+        requiresAuth: true,
+        requiresRolesCheck: true,
+      }
+    },
+    {
+      path: '/two',
+      name: 'StoryTwo',
+      component: StoryTwo,
+      meta: {
+        requiresAuth: true,
+        requiresRolesCheck: true,
+      }
+    },
+    {
+      path: '/three',
+      name: 'StoryThree',
+      component: StoryThree,
+      meta: {
+        requiresAuth: true,
+        requiresRolesCheck: true,
+      }
+    },
+    {
+      path: '/dashboard',
+      name: 'Dashboard',
+      component: Dashboard,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/docs',
+      name: 'DevDocs',
+      component: DevDocs
+    },
+    {
+      path: '/Pictures',
+      name: 'Pictures',
+      component: Pictures
+    },
+    {
+      path: '/Company',
+      name: 'Company',
+      component: Company
+    },
+    {
+      path: '/rewards',
+      name: 'CompanyRewards',
+      component: CompanyRewards
+    },
+    {
+      path: '/news',
+      name: 'CompanyNews',
+      component: CompanyNews
+    },
+    {
+      path: '/Publish',
+      name: 'Publish',
+      component: Publish
+    },
+    {
+      path: '/Contents',
+      name: 'Contents',
+      component: Contents
+    },
+    {
+      path: '/addPics',
+      name: 'AddPictures',
+      component: AddPictures
+    },
+    {
+      path: '/managePics',
+      name: 'ManagePics',
+      component: ManagePics
     }
-  },
-  {
-    path: '/two',
-    name: 'StoryTwo',
-    component: StoryTwo,
-    meta: {
-      requiresAuth: true,
-      requiresRolesCheck: true,
-    }
-  },
-  {
-    path: '/three',
-    name: 'StoryThree',
-    component: StoryThree,
-    meta: {
-      requiresAuth: true,
-      requiresRolesCheck: true,
-    }
-  },
-  {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: Dashboard,
-    meta: {
-      requiresAuth: true
-    }
-  },
-  {
-    path: '/docs',
-    name: 'DevDocs',
-    component: DevDocs
-  },
-  {
-    path: '/Pictures',
-    name: 'Pictures',
-    component: Pictures
-  },
-  {
-    path: '/Company',
-    name: 'Company',
-    component: Company
-  },
-  {
-    path: '/rewards',
-    name: 'CompanyRewards',
-    component: CompanyRewards
-  },
-  {
-    path: '/news',
-    name: 'CompanyNews',
-    component: CompanyNews
-  },
-  {
-    path: '/Publish',
-    name: 'Publish',
-    component: Publish
-  },
-  {
-    path: '/Contents',
-    name: 'Contents',
-    component: Contents
-  },
-  {
-    path: '/addPics',
-    name: 'AddPictures',
-    component: AddPictures
-  }
   ],
   mode: 'history'
 })
@@ -129,6 +135,7 @@ router.beforeEach((to, from, next) => {
       });
       store.commit('ERROR_POPUP', {
         message: 'User is not logined successful yet!!',
+        type: 'SUCCESS',
         isPopUp: true
       })
     }
@@ -152,6 +159,7 @@ function checkComponentAuth(to, next) {
           next(false)
           store.commit('ERROR_POPUP', {
             message: `User doesn't have enough role to access '` + path + `'`,
+            type: 'WORM',
             isPopUp: true
           })
         }
@@ -160,6 +168,7 @@ function checkComponentAuth(to, next) {
       next(false);
       store.commit('ERROR_POPUP', {
         message: `User doesn't have enough role to access '` + path + `'`,
+        type: 'WORM',
         isPopUp: true
       })
     }

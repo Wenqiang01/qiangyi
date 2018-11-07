@@ -14,7 +14,7 @@
                     </span>
                     <select name="cars" v-model="fileType" style="min-width:200px">
                         <option value="卧房家具">卧房家具</option>
-                        <option value="卧房家具">卧房家具</option>
+                        <option value="卧房家具">书房家具</option>
                         <option value="客厅家具">客厅家具</option>
                         <option value="餐厅家具">餐厅家具</option>
                         <option value="其他家具">其他家具</option>
@@ -115,9 +115,10 @@ export default {
             const promise = postFileData(formData);
             promise.then(data => {
                 console.log(data);
-                if(data.data.status === 'SUCCESS') {
+                if (data.data.status === 'SUCCESS') {
                     this.$store.dispatch('ERROR_POPUP', {
-                         message: data.data.message,
+                        message: data.data.message,
+                        type: 'SUCCESS',
                         isPopUp: true
                     });
                     this.title = '';
@@ -125,7 +126,7 @@ export default {
                     this.hasFile = false
                     this.uploadedFileName = '';
                     this.file = null,
-                    this.imgDataUrl = '';
+                        this.imgDataUrl = '';
                 }
             });
         },

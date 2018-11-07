@@ -13,9 +13,11 @@ export default {
   },
   [ERROR_POPUP](state, {
     message,
+    type,
     isPopUp
   }) {
     state.errorPop.errorMsg = message;
     state.errorPop.isPopUp = isPopUp;
+    state.errorPop.errorType = type;
   }
 }

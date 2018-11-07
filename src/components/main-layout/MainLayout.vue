@@ -18,6 +18,7 @@
                             <a class="dropdown-item" @click="redircectTo('Company')" href="#">公司简介</a>
                             <a class="dropdown-item" @click="redircectTo('rewards')" href="#">荣誉资质</a>
                             <a class="dropdown-item" @click="redircectTo('news')" href="#">企业新闻</a>
+                            <a class="dropdown-item" @click="redircectTo('addPics')" href="#">后台管理</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown width-25percent display-center">

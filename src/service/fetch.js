@@ -50,6 +50,12 @@ export default async (url = '', data = {}, type = 'GET', method = '', headers = 
         'Content-Type': 'multipart/form-data'
       }
     });
+  } else if (type === 'delete') {
+    return HTTP.delete(url, {
+      headers: {
+        Authorization: auth_token
+      }
+    })
   }
 }
 

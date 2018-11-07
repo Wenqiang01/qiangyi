@@ -61,6 +61,7 @@ export const isAuthtoProcess = (role) => {
           } else {
             store.commit('ERROR_POPUP', {
               message: `User doesn't have enough role to access '` + role + `'`,
+              type: 'WORM',
               isPopUp: true
             })
             return false;

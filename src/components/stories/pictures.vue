@@ -1,48 +1,48 @@
 <template>
-    <mainLayout>
-        <div class="row-container container">
-            <div class="category-normal-wrapper row">
-                <div class="title-block">
-                        <span class="text-warm badge-title">全部</span>
-                        <span class="text-warm badge-title" v-for="type of imgTypeList" :key="type">{{type}}</span>
-                </div>
-            </div>
+  <mainLayout>
+    <div class="row-container container">
+      <div class="category-normal-wrapper row">
+        <div class="title-block">
+          <span class="text-warm badge-title">全部</span>
+          <span class="text-warm badge-title" v-for="type of imgTypeList" :key="type">{{type}}</span>
         </div>
-        <div class="row-container container">
-            <div class="category-normal-wrapper row" v-for="type of imgTypeList" :key="type">
-                <div class="title-block">
-                    <span>{{type}}</span>
-                </div>
-                <div v-for="img of getImgListByType(type)" :key="img.id" class="col-3 listBlock" data-toggle="modal" @click="onImgToggle(img.path)" data-target="#exampleModalCenter">
-                    <img :src="img.path" alt="" class="" style="width: 200px">
-                    <p>
-                        <a href="">{{img.title}}</a>
-                    </p>
-                </div>
-            </div>
+      </div>
+    </div>
+    <div class="row-container container">
+      <div class="category-normal-wrapper row" v-for="type of imgTypeList" :key="type">
+        <div class="title-block">
+          <span>{{type}}</span>
         </div>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog picture-Width" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">图片展示</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body img-preview">
-                        <img class="img-fluid" :src="imagePreviewPath" alt="">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary">上一张</button>
-                        <button type="button" class="btn btn-secondary">下一张</button>
-                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">关  闭</button> -->
-                    </div>
-                </div>
-            </div>
+        <div v-for="img of getImgListByType(type)" :key="img.id" class="col-3 listBlock" data-toggle="modal" @click="onImgToggle(img.path)" data-target="#exampleModalCenter">
+          <img :src="img.path" alt="" class="" style="width: 200px">
+          <p>
+            <a href="">{{img.title}}</a>
+          </p>
         </div>
-    </mainLayout>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog picture-Width" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">图片展示</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body img-preview">
+            <img class="img-fluid" :src="imagePreviewPath" alt="">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary">上一张</button>
+            <button type="button" class="btn btn-secondary">下一张</button>
+            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">关  闭</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </mainLayout>
 </template>
 <script>
 import { mapState, mapMutations } from "vuex";
@@ -78,7 +78,7 @@ export default {
       }
     }
   },
-  mounted() {},
+  mounted() { },
   methods: {
     ...mapMutations(["ERROR_POPUP"]),
     initData() {
@@ -132,6 +132,7 @@ export default {
     closeModel() {
       this.ERROR_POPUP({
         message: "",
+        type: '',
         isPopUp: false
       });
     }
@@ -150,7 +151,7 @@ export default {
   margin-right: 20px;
   padding: 5px;
   &:hover {
-      background: #bbb
+    background: #bbb;
   }
 }
 
